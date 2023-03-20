@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>ToDOList</title>
+</head>
+<body>
+    <div id="app">
+        <h1 id="heading" class=" text-secondary">TODO App</h1>
+        <form action="/" method="post">
+            <div id="descriptionription" class="border border-muted">
+                <h3 class="text-secondary">description</h3>
+                <input type="text" name="name" placeholder="What do you need to do?">
+            </div>
+            <div class="information">
+
+                <div class="categoryegory-card one border-end">
+                    <span class="text-muted">category</span>
+                </div>
+
+                <div class="due-date-card date1">
+                    <span class="text-muted">DUE-DATE</span>
+                </div>
+
+            </div>
+
+            <!-- this div is for drop down list of categoryegory and due date input -->
+            <div class="information">
+ 
+                <div class="categoryegory-card mb-3 border-end two">
+                    <select class="custom-select" name="category">
+                        <option value="Personal">Personal</option>
+                        <option value="Professional">Professional</option>
+                        <option value="Academics">Academics</option>
+                        <option value="Social">Social</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="due-date-card " >
+                    <input type="date" name="date" required>
+                </div>
+
+            </div>
+            <div id="buttons" class="d-flex justify-content-center mt-2 border">
+                <button class="button me-1 mt-3 mb-3" type="submit" style="background-color: rgb(65, 65, 65); border: none;">
+                    <h6 style="text-align: center;" class="mt-2 text-light">Add task</h1>
+                </button>
+            </form>
+    <form action="/delete-task" method="get">
+            <button type="submit" class="button mt-3 mb-3" style="background-color: red;border: none;">
+                <h6 class="text-light mt-2">Delete Task</h6>
+            </button>
+        </div>
+        <% if(todo_list.length!=0){ %> 
+           <% for(let i of todo_list) { %>
+                <div class="card task-card d-flex  flex-row">
+                    <div class="tick-box">
+                        <input type="checkbox" class="select-task" id="checkbox" name="<%= i._id%>">
+                    </div>
+            
+                    <div class="card-body task-body">
+                        <h5 class="card-title "><%= i.name %></h5>
+                        <p class="text-muted"><%= i.description %></p>
+                        <p class="text-muted"><i class="far fa-calendar-alt"></i> <%= i.date %></p>
+                    </div>
+            
+                    <div class="tag-box">
+            
+                        <!-- *********giving colors to baddges according to their priority******** -->
+            
+            
+                        <!-- *********giving colors to baddges according to their categoryegory******** -->
+                        
+                        <% if(i.category=='Personal') {%>
+                        <h4><span class="badge text-bg-info mt-5"><%= i.category %> </span></h4>
+                        <% }%>
+            
+                        <% if(i.category=='Professional') {%>
+                        <h4><span class="badge text-bg-success mt-5"> <%= i.category %> </span></h4>
+                        <% }%>
+                            
+                        <% if(i.category=='Academics') {%>
+                        <h4><span class="badge text-bg-primary mt-5"> <%= i.category %> </span></h4>
+                        <% }%>
+            
+                        <% if(i.category=='Social') {%>
+                        <h4><span class="badge text-bg-dark mt-5"> <%= i.category %> </span></h4>
+                        <% }%>
+            
+                        <% if(i.category=='Other') {%>
+                        <h4><span class="badge text-bg-default mt-5"> <%= i.category %> </span></h4>
+                        <% }%>
+            
+                    </div>
+            
+                </div>
+            
+            
+                <% } %>
+                <% } %>
+            
+                <!-- if task list is empty then no task added message will be printed -->
+                <% if( todo_list.length==0 ) {%>
+                <h1 style="text-align: center;">No task Added Yet!</h1>
+            
+                <% } %>
+            </div>
+        </form>
+    
+                
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

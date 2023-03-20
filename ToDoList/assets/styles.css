@@ -1,0 +1,51 @@
+body{
+    background-color: black;
+}
+h1{
+    text-align: center;
+    
+}
+
+h3{
+    margin: 0px;
+    font-size: medium;
+}
+
+#app{
+    margin-left: 25%;
+    background-color: white;
+    margin-right: 25%;
+}
+body{
+    background-color: grey;
+}
+input{
+    border: none;
+    
+}
+
+
+.information{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.custom-select{
+    border: none;
+    padding-right: 168%;
+    
+}
+.due-date-card{
+    margin-right: 25%;
+}
+.date1{
+    margin-right: 30%;
+}
+.one{
+    padding-left: 0%;
+    padding-right: 35%;
+}
+.two{
+    padding-right: 294px;
+}
